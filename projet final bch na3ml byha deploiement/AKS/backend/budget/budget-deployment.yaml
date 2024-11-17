@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: budget-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: budget
+  template:
+    metadata:
+      labels:
+        app: budget
+    spec:
+      containers:
+        - name: budget
+          image: pfeihebacr.azurecr.io/budget:v3
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1000m"
+          env:
+            - name: DATABASE_URL
+              value: "mysql://root:root@mysql-service:3306/budgetdb"
+            - name: Transaction_url
+              value: "http://transaction-service:8001/transaction/"
+      imagePullSecrets:
+        - name: acr-secret
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: budget-service
+spec:
+  selector:
+    app: budget
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: LoadBalancer

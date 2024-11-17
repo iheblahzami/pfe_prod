@@ -1,0 +1,44 @@
+<!--&lt;!&ndash; show-budget-by-id.component.html &ndash;&gt;-->
+<!--<h2>Show Budget Details</h2>-->
+
+<!--<div *ngIf="budget">-->
+<!--  <p><strong>ID:</strong> {{ budget.id }}</p>-->
+<!--  <p><strong>Nom Budget:</strong> {{ budget.nomBudget }}</p>-->
+<!--  <p><strong>Montant Budget:</strong> {{ budget.montantBudget }}</p>-->
+<!--  <p><strong>Income ID:</strong> {{ budget.incomeId }}</p>-->
+<!--  <p><strong>Categories:</strong> {{ budget.categories }}</p>-->
+<!--</div>-->
+
+<!--<div *ngIf="!budget">-->
+<!--  <p>No budget found with the provided ID.</p>-->
+<!--</div>-->
+<div class="show-budget-details-container">
+  <h2>Show Budget Details</h2>
+
+  <table *ngIf="budget" class="budget-details">
+    <tr>
+      <td><strong>ID:</strong></td>
+      <td>{{ budget.id }}</td>
+    </tr>
+    <tr>
+      <td><strong>Nom Budget:</strong></td>
+      <td>{{ budget.nomBudget }}</td>
+    </tr>
+    <tr>
+      <td><strong>Montant Budget:</strong></td>
+      <td>{{ budget.montantBudget }}</td>
+    </tr>
+    <tr>
+      <td><strong>Income ID:</strong></td>
+      <td>{{ budget.incomeId }}</td>
+    </tr>
+    <tr>
+      <td><strong>Categories:</strong></td>
+      <td>{{ budget.categories }}</td>
+    </tr>
+  </table>
+
+  <div *ngIf="!budget" class="no-budget-found">
+    <p>No budget found with the provided ID.</p>
+  </div>
+</div>

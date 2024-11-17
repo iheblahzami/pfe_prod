@@ -1,0 +1,11 @@
+<h2>Show Income Details</h2>
+
+<div *ngIf="income">
+  <p><strong>ID:</strong> {{ income.id }}</p>
+  <p><strong>Month:</strong> {{ income.mois }}</p>
+  <p><strong>Income Amount:</strong> {{ income.montantIncome }}</p>
+</div>
+
+<div *ngIf="!income">
+  <p>No income found with the provided ID.</p>
+</div>

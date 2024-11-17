@@ -1,0 +1,131 @@
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="../../assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="../../assets/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<!-- Page Wrapper -->
+<div id="wrapper" style="  width: 1200px">
+  <app-sidebar></app-sidebar>
+
+  <!-- Content Wrapper -->
+  <div id="content-wrapper" class="d-flex flex-column">
+
+    <!-- Main Content -->
+    <div id="content">
+
+    <app-navbar></app-navbar>
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+        <div class="row">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4">
+          <div class="one">
+            <h1>Incomes</h1>
+          </div>
+        </div>
+
+
+      <select id="selectedMonth" #selectedMonthEl (change)="onSelectMonth(selectedMonthEl.value)">
+        <option value="" disabled selected>--Select Month--</option>
+        <option *ngFor="let income of incomes" [value]="income.mois">{{ income.mois }}</option>
+      </select>
+
+  </div>    </div>
+       <div class="page-contain"style="background: white">
+
+    <div class="meta">
+    </div>
+      <div *ngIf="selectedMonth && budgets.length === 0">
+        <p>Budget not found for selected month.</p>
+        <button class="btn btn-facebook" (click)="onAddBudget()">Add Budget</button>
+      </div>
+
+    <div class="row " *ngIf="selectedMonth && budgets.length > 0">
+      <div *ngFor="let budget of budgets" class="data-card ">
+        <button class="button2" (click)="onDeleteBudget(budget.id)" style="margin-left: 100px">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+          </svg>
+        </button>
+        <h3>{{ budget.montantBudget }} DT
+      </h3>
+<!--        <h4>{{ budget.nomBudget }}</h4>-->
+        <h4 >{{ budget.categories }}</h4>
+        <span class="link-text" (click)="onSelectBudget(budget.id.toString())">
+      View Details
+
+    </span>
+
+        <!--        <button class="select-button" (click)="onSelectBudget(budget.id.toString())">Select</button>-->
+      </div>
+    </div>
+    <!-- End of Main Content -->
+</div>    </div>
+
+  </div>  </div>
+
+<!-- Footer -->
+
+    <!-- End of Footer -->
+
+  <!-- End of Content Wrapper -->
+
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="../../assets/vendor/jquery/jquery.min.js"></script>
+<script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Core plugin JavaScript-->
+<script src="../../assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="../../assets/js/sb-admin-2.min.js"></script>
+
+<!-- Page level plugins -->
+<script src="../../assets/vendor/chart.js/Chart.min.js"></script>
+
+<!-- Page level custom scripts -->
+<script src="../../assets/js/demo/chart-area-demo.js"></script>
+<script src="../../assets/js/demo/chart-pie-demo.js"></script>

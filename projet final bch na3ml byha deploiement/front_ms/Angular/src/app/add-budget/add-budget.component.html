@@ -1,0 +1,42 @@
+<app-navbar></app-navbar>
+<div class="row">
+  <div class="col-md-3">
+    <app-sidebar></app-sidebar>
+  </div>
+
+
+        <div class='container'>
+          <div class='window'>
+            <div class='overlay'></div>
+            <div class='content'>
+              <div class='welcome'>Add your Budget</div>
+              <form class='input-fields' [formGroup]="budgetForm" (ngSubmit)="onSubmit()">
+              <input type="text" class='input-line full-width' id="nomBudget" formControlName="nomBudget" placeholder="Enter budget name">
+
+              <input type="number" class='input-line full-width' id="montantBudget" formControlName="montantBudget" placeholder="Enter budget amount">
+
+              <select id="incomeId" formControlName="incomeId">
+                <option *ngFor="let income of incomes" [value]="income.id" [selected]="income.mois === selectedMonth">{{ income.mois }}</option>
+              </select>
+            <div class="form-group">
+              <label for="categories">Categories:</label>
+              <select id="categories" formControlName="categories">
+                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+              </select>
+            </div>
+                <div><button type="submit" class='ghost-round full-width'>Add</button></div>
+                <button type="button" class="ghost-round full-width" (click)="goBack()">Back</button>
+
+              </form>
+            </div>
+          </div>
+
+
+
+
+
+
+          <!-- Back button -->
+        </div>
+      </div>
+

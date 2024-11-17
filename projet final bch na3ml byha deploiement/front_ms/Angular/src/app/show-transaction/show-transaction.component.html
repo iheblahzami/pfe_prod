@@ -1,0 +1,19 @@
+<app-navbar></app-navbar>
+<div class="full-page">
+  <div class="row" style="position: relative; display:inline-flex">
+    <app-sidebar></app-sidebar>
+
+    <article class="content">
+      <h1 style="margin-left: 180px">Transactions</h1>
+      <main class="leaderboard__profiles">
+        <article class="data-card" *ngFor="let transaction of transactions | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+          <!-- Assuming transaction.nomtransaction contains the name, and transaction.montantTransaction contains the value -->
+          <span class="leaderboard__name">{{ transaction.nomtransaction }}</span>
+          <span class="leaderboard__value">{{ transaction.montantTransaction }}<span>DT</span></span>
+          <!-- Add more columns as needed -->
+        </article>
+      </main>
+      <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    </article>
+  </div>
+</div>

@@ -1,0 +1,98 @@
+.sidebar {
+  height: 100%;
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #f8f9fa; /* Light grayish white */
+  overflow-x: hidden;
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column; /* Display sidebar items vertically */
+  color: #212529; /* Text color - black */
+  transition: width 0.3s ease; /* Smooth transition for sidebar width */
+}
+
+.sidebar-header {
+  padding: 20px;
+  text-align: center;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+}
+
+.sidebar-menu {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px; /* Space between header and menu */
+}
+
+.sidebar-menu li {
+  padding: 10px;
+  transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+.sidebar-menu li a {
+  color: #212529; /* Text color - black */
+  text-decoration: none;
+  display: block;
+}
+
+.sidebar-menu li a:hover {
+  background-color: #dcdcdc; /* Light grayish hover color */
+}
+
+/* Style the signout button */
+.sidebar-signout-button {
+  background-color: #dc3545; /* Red */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: auto; /* Push the signout button to the bottom */
+  margin-bottom: 20px; /* Space between menu and button */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.sidebar-signout-button:hover {
+  background-color: #c82333; /* Darker red on hover */
+}
+.minimized {
+  width: 50px; /* Minimized width of the sidebar */
+}
+
+.sidebar-toggle-button {
+  /* Your button styling */
+  position: absolute;
+  top: 20px;
+  right: 10px; /* Adjust as needed */
+  background: transparent;
+  border: none;
+  color: #212529;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth transition for button rotation */
+}
+
+.sidebar-toggle-button:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+/* Rotate button icon based on sidebar state */
+.minimized .sidebar-toggle-button {
+  transform: rotate(180deg); /* Rotate when sidebar is minimized */
+}
+.navbar {
+  background-color: #007bff; /* Blue */
+  color: white;
+  height: 60px; /* Adjust as needed */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-title {
+  font-size: 1.5rem; /* Adjust as needed */
+  font-weight: bold;
+}

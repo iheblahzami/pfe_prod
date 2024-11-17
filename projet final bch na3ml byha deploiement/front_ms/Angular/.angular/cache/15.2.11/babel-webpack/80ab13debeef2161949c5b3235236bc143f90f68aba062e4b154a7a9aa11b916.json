@@ -1,0 +1,1 @@
+{"ast":null,"code":"export const environment = {\n  production: true,\n  config: {\n    //urlLogin: 'http://127.0.0.1:8005'\n    urlLogin: 'http://40.78.54.18:8005'\n  }\n};","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}

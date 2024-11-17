@@ -1,0 +1,6 @@
+# config/packages/server.yaml or config/packages/web_server.yaml
+
+framework:
+  router:
+    # Ensure Symfony listens on all network interfaces
+    strict_requirements: true

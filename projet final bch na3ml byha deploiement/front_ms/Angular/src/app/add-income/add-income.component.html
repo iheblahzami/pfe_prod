@@ -1,0 +1,76 @@
+<app-navbar></app-navbar>
+<div class="row" style="position: relative; display:inline-flex ">
+  <app-sidebar></app-sidebar>
+
+  <div class="container">
+
+    <div class="left">
+      <div class="header">
+        <div class="d-sm-flex align-items-center justify-content-between mb-4" style="margin-top: -280px;border-bottom:3px solid #1c294e;max-width: 120px">
+          <div class="one">
+            <h1>Incomes</h1>
+          </div>
+        </div>
+        <h4 class="animation a2"></h4>
+      </div>
+      <div class="form">
+        <form [formGroup]="incomeForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="mois" style="font-family:Calibri;font-size: 22px">Month:</label>
+            <select class="form-control form-field animation a3" id="mois" formControlName="mois">
+              <option value="" disabled selected>Select Month</option>
+              <option value="January">January</option>
+              <option value="February">February</option>
+              <option value="March">March</option>
+              <option value="April">April</option>
+              <option value="May">May</option>
+              <option value="June">June</option>
+              <option value="July">July</option>
+              <option value="August">August</option>
+              <option value="September">September</option>
+              <option value="October">October</option>
+              <option value="November">November</option>
+              <option value="December">December</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="montantIncome" style="font-family:Calibri;font-size: 22px;padding-bottom: 0.5px">Amount:</label>
+            <input type="number" class="form-control form-field animation a3" id="montantIncome" formControlName="montantIncome" placeholder="Enter income amount">
+          </div>
+          <button class="btn btn-success" style="margin-left: -0px;margin-top: 10px" type="submit">Add</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="right">
+      <div *ngFor="let income of incomes | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }" class="data-card">
+        <div *ngIf="!income.editMode">
+          <h3>{{ income.montantIncome }} DT</h3>
+          <h4>{{ income.mois }}</h4>
+          <button class="btn btn-danger" (click)="deleteIncome(income.id)">Delete</button>
+          <button class="btn btn-success" style="margin-top: -30px;margin-left: 170px" (click)="toggleEditMode(income)">Update</button>
+        </div>
+        <div *ngIf="income.editMode">
+          <input [(ngModel)]="income.montantIncome" placeholder="Enter new amount" />
+          <select [(ngModel)]="income.mois">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+          </select>
+          <button class="btn btn-success" (click)="updateincome(income)">Save</button>
+          <button class="btn btn-secondary" (click)="cancelEdit(income)">Cancel</button>
+        </div>
+      </div>
+      <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+    </div>
+  </div>
+</div>

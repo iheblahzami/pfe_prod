@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<div class="row" style="position: relative; display:inline-flex ">
+  <app-sidebar></app-sidebar>
+  <div class="container-fluid">
+
+    <!-- Page Heading -->
+
+    <article class="leaderboard">
+
+      <main class="leaderboard__profiles">
+        <article class="data-card" *ngFor="let budget of budgets | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage }">
+          <!-- Assuming budget.nomBudget contains the name, and budget.montantBudget contains the value -->
+          <h3 class="leaderboard__name">{{ budget.nomBudget }}</h3>
+          <h4 class="leaderboard__value">{{ budget.montantBudget }}<span>DT</span></h4>
+
+          <button class="btn btn-danger" style="margin-left: 260px; margin-top: -20px;padding: 5px" (click)="onDeleteBudget(budget.id)">Delete</button>
+          <button class="btn btn-success" style="margin-top: 5px;margin-left: 260px; padding: 5px" (click)="onSelectBudget(budget.id)">Select</button>
+        </article>
+      </main>
+
+      <pagination-controls (pageChange)="currentPage = $event"></pagination-controls>
+
+      <div class="right">
+        <div class="data-cardd" *ngIf="selectedBudgetTransactions.length > 0">
+          <div class="modal-wrap">
+            <h3>Transactions for "{{ selectedBudgetName }} " Budget:</h3>
+            <h1>Expenses: {{ totalMontantTransaction }} DT</h1>
+
+            <article class="leaderboard__profile" *ngFor="let transaction of selectedBudgetTransactions">
+              <!-- Assuming transaction.nomtransaction contains the name, and transaction.montantTransaction contains the value -->
+              <span class="leaderboard__name">{{ transaction.nomtransaction }}</span>
+              <span class="leaderboard__value">{{ transaction.montantTransaction }}<span>DT</span></span>
+              <!-- Add more columns as needed -->
+            </article>
+          </div>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>

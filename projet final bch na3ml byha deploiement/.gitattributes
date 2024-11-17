@@ -1,0 +1,4 @@
+projet filter=lfs diff=lfs merge=lfs -text
+finalfront_ms filter=lfs diff=lfs merge=lfs -text
+/front_ms filter=lfs diff=lfs merge=lfs -text
+front_ms/front-budget22-master/.angular/cache/15.2.11/angular-webpack/cb0eab8f742bf13bf22669f8bc6a2649581a6ad9/0.pack filter=lfs diff=lfs merge=lfs -text

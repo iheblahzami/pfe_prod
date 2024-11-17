@@ -1,0 +1,41 @@
+<!--&lt;!&ndash; edit-budget.component.html &ndash;&gt;-->
+<!--<form [formGroup]="budgetForm" (ngSubmit)="onSubmit()">-->
+<!--  <div>-->
+<!--    <label for="nomBudget">Nom Budget:</label>-->
+<!--    <input type="text" id="nomBudget" formControlName="nomBudget">-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="montantBudget">Montant Budget:</label>-->
+<!--    <input type="number" id="montantBudget" formControlName="montantBudget">-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="incomeId">Income ID:</label>-->
+<!--    <input type="number" id="incomeId" formControlName="incomeId">-->
+<!--  </div>-->
+<!--  <div>-->
+<!--    <label for="categories">Categories:</label>-->
+<!--    <input type="text" id="categories" formControlName="categories">-->
+<!--  </div>-->
+<!--  <button type="submit">Save Changes</button>-->
+<!--</form>-->
+<div class="edit-budget-form">
+  <form [formGroup]="budgetForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="nomBudget">Nom Budget:</label>
+      <input type="text" id="nomBudget" formControlName="nomBudget" placeholder="Enter budget name">
+    </div>
+    <div class="form-group">
+      <label for="montantBudget">Montant Budget:</label>
+      <input type="number" id="montantBudget" formControlName="montantBudget" placeholder="Enter budget amount">
+    </div>
+    <div class="form-group">
+      <label for="incomeId">Income ID:</label>
+      <input type="number" id="incomeId" formControlName="incomeId" placeholder="Enter income ID">
+    </div>
+    <div class="form-group">
+      <label for="categories">Categories:</label>
+      <input type="text" id="categories" formControlName="categories" placeholder="Enter categories">
+    </div>
+    <button type="submit">Save Changes</button>
+  </form>
+</div>
